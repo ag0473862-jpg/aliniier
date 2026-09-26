@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Квизо — конструктор игры</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#"><span class="brand-mark">К</span><span>квизо</span></a>
+        <button class="new-game"><span>＋</span> Новая игра</button>
+        <nav>
+          <a class="nav-item active" href="#"><span>▦</span> Мои игры</a>
+          <a class="nav-item" href="#"><span>◈</span> Шаблоны</a>
+          <a class="nav-item" href="#"><span>♧</span> Медиатека</a>
+        </nav>
+        <div class="sidebar-bottom">
+          <a class="nav-item" href="#"><span>?</span> Помощь</a>
+          <button class="profile"><span class="avatar">А</span><span><b>Анна</b><small>Организатор</small></span><i>⌄</i></button>
+        </div>
+      </aside>
+
+      <main>
+        <header class="topbar">
+          <div class="crumbs"><span>Мои игры</span><b>›</b><strong>Юбилей мамы</strong></div>
+          <div class="header-actions"><button class="icon-button" aria-label="Настройки">⚙</button><button class="preview" id="previewButton">▻&nbsp; Предпросмотр</button><button class="publish" id="publishButton">Опубликовать</button></div>
+        </header>
+
+        <section class="content">
+          <div class="intro-row">
+            <div><p class="eyebrow">КОНСТРУКТОР ИГРЫ</p><h1>Юбилей мамы <button class="edit-title" aria-label="Переименовать">✎</button></h1><p class="subtitle">Настройте темы, вопросы и атмосферу вашего праздника.</p></div>
+            <div class="save-state"><span></span> Все изменения сохранены</div>
+          </div>
+
+          <div class="workspace-tabs"><button class="tab active">Игровое поле <span>3</span></button><button class="tab">Оформление</button><button class="tab">Настройки</button></div>
+
+          <div class="builder-grid">
+            <section class="board-panel">
+              <div class="section-heading"><div><h2>Игровое поле</h2><p>Добавьте темы и вопросы — участники увидят их на экране.</p></div><button class="round-add" id="addTheme">＋ Добавить тему</button></div>
+              <div class="game-board" id="gameBoard">
+                <article class="theme-card peach">
+                  <div class="theme-top"><div class="theme-icon">🎂</div><button class="more" aria-label="Меню темы">•••</button></div>
+                  <h3>Именинница</h3><p>Всё о главной героине вечера</p>
+                  <div class="questions"><button class="question filled" data-question="Любимое блюдо мамы?" data-answer="Паста карбонара">100</button><button class="question filled" data-question="В каком городе мама встретила папу?" data-answer="В Санкт-Петербурге">200</button><button class="question filled" data-question="Какое её любимое время года?" data-answer="Лето">300</button><button class="question empty">＋</button></div>
+                </article>
+                <article class="theme-card lilac">
+                  <div class="theme-top"><div class="theme-icon">📸</div><button class="more" aria-label="Меню темы">•••</button></div>
+                  <h3>Воспоминания</h3><p>Фото, истории и тёплые моменты</p>
+                  <div class="questions"><button class="question filled" data-question="Где сделано это фото?" data-answer="На даче в Переделкино">100</button><button class="question filled" data-question="Продолжите фразу из семейного архива" data-answer="А помнишь, как мы...">200</button><button class="question empty">＋</button><button class="question empty">＋</button></div>
+                </article>
+                <article class="theme-card blue">
+                  <div class="theme-top"><div class="theme-icon">✨</div><button class="more" aria-label="Меню темы">•••</button></div>
+                  <h3>Блиц</h3><p>Быстрые вопросы для всех гостей</p>
+                  <div class="questions"><button class="question filled" data-question="Любимый семейный тост?" data-answer="За здоровье и счастье!">100</button><button class="question filled" data-question="Кто первым звонит в день рождения?" data-answer="Самая близкая подруга">200</button><button class="question filled" data-question="Назовите любимый цвет именинницы" data-answer="Бирюзовый">300</button><button class="question empty">＋</button></div>
+                </article>
+                <button class="add-theme-card" id="addThemeCard"><span>＋</span><b>Добавить тему</b><small>Фото, мемы или вопросы</small></button>
+              </div>
+            </section>
+
+            <aside class="tips-card">
+              <div class="sparkle">✦</div><h2>Сделайте игру<br/>незабываемой</h2><p>Добавьте в вопросы личные фото, смешные мемы и голосовые сообщения.</p>
+              <ul><li><span>✓</span> До 6 тем в игре</li><li><span>✓</span> Фото, видео и GIF</li><li><span>✓</span> Игра на любом экране</li></ul>
+              <button>Смотреть идеи <b>→</b></button>
+            </aside>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="questionDialog">
+      <button class="close" id="closeDialog">×</button><p class="eyebrow">ВОПРОС · 100 БАЛЛОВ</p><h2 id="dialogQuestion"></h2><div class="answer-box"><span>Правильный ответ</span><b id="dialogAnswer"></b></div><button class="publish dialog-button">Готово</button>
+    </dialog>
+    <div class="toast" id="toast">Игра опубликована — можно приглашать гостей!</div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
